@@ -1,0 +1,62 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int n1, n2;
+    char op, continuar;
+
+    do {
+        printf("Informe o N1 (1 a 10): ");
+        scanf("%d", &n1);   
+
+        printf("Informe a Operacao (+, -, *, /): ");
+        scanf(" %c", &op);
+
+        printf("Informe o N2 (1 a 10): ");
+        scanf("%d", &n2);
+
+        while ((n1 < 1 || n1 > 10) || 
+               (n2 < 1 || n2 > 10) || 
+               (op != '+' && op != '-' && op != '*' && op != '/')) {
+            printf("\nEntrada invalida! Tente novamente.\n\n");
+
+            printf("Informe o N1 (1 a 10): ");
+            scanf("%d", &n1);
+
+            printf("Informe a Operacao (+, -, *, /): ");
+            scanf(" %c", &op);
+
+            printf("Informe o N2 (1 a 10): ");
+            scanf("%d", &n2);
+        }
+
+        switch(op) {
+            case '+':
+                printf("Resultado = %d + %d = %d\n", n1, n2, n1 + n2);
+                break;
+            case '-':
+                printf("Resultado = %d - %d = %d\n", n1, n2, n1 - n2);
+                break;
+            case '*':
+                printf("Resultado = %d * %d = %d\n", n1, n2, n1 * n2);
+                break;
+            case '/':
+                if (n2 != 0)
+                    printf("Resultado = %d / %d = %d\n", n1, n2, n1 / n2);
+                else
+                    printf("Erro: divisao por zero!\n");
+                break;
+        }
+
+        printf("\nDeseja continuar? (S/N): ");
+        scanf(" %c", &continuar);
+
+        if (continuar == 'S' || continuar == 's') {
+            system("cls");
+        }
+
+    } while (continuar == 'S' || continuar == 's');
+    printf("\nPrograma encerrado.\n");
+
+    return 0;
+}
