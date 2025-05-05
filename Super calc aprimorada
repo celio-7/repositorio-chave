@@ -1,0 +1,55 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int n1, n2;
+    char op, continuar;
+
+    do {
+        // Validação de N1
+        do {
+            printf("Informe o N1 (1 a 10): ");
+            scanf("%d", &n1);
+            if (n1 < 1 || n1 > 10)
+                printf("Valor invalido! Tente novamente.\n");
+        } while (n1 < 1 || n1 > 10);
+
+        // Validação de operador
+        do {
+            printf("Informe a operacao (+, -, *, /): ");
+            scanf(" %c", &op);
+            if (op != '+' && op != '-' && op != '*' && op != '/')
+                printf("Operador invalido! Tente novamente.\n");
+        } while (op != '+' && op != '-' && op != '*' && op != '/');
+
+        // Validação de N2
+        do {
+            printf("Informe o N2 (1 a 10): ");
+            scanf("%d", &n2);
+            if (n2 < 1 || n2 > 10)
+                printf("Valor invalido! Tente novamente.\n");
+            if (op == '/' && n2 == 0)
+                printf("Divisao por zero nao permitida.\n");
+        } while (n2 < 1 || n2 > 10 || (op == '/' && n2 == 0));
+
+        // Operação
+        switch(op) {
+            case '+': printf("Resultado = %d + %d = %d\n", n1, n2, n1 + n2); break;
+            case '-': printf("Resultado = %d - %d = %d\n", n1, n2, n1 - n2); break;
+            case '*': printf("Resultado = %d * %d = %d\n", n1, n2, n1 * n2); break;
+            case '/': printf("Resultado = %d / %d = %d\n", n1, n2, n1 / n2); break;
+        }
+
+        // Repetição
+        printf("\nDeseja continuar? (S/N): ");
+        scanf(" %c", &continuar);
+
+        if (continuar == 'S' || continuar == 's') {
+            system("cls"); // LIMPA TELA (só funciona no Windows)
+        }
+
+    } while (continuar == 'S' || continuar == 's');
+
+    printf("\nPrograma encerrado.\n");
+    return 0;
+}
