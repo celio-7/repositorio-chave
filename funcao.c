@@ -6,7 +6,6 @@ void rodape ();
 int le_valida_n1();
 int le_valida_n1();
 char le_valida_op();
-char le_valida_sair();
 int soma (int n1, int n2);
 int sub (int n1, int n2);
 int mult (int n1, int n2);
@@ -15,7 +14,7 @@ int dv (int n1, int n2);
 int main() {
 	int n1,n2;
 	char op,sair;
-	
+do{	
 	cabecalho();
 	n1 = le_valida_n1();
 	op = le_valida_op();
@@ -35,14 +34,19 @@ int main() {
 			printf("Resultado: %d\n",dv(n1,n2));
 		break;
 	}
-	
-	sair = le_valida_sair();
+		printf("Deseja sair? (S/N) ");
+		scanf(" %c",&sair);
+		if(sair == 's' || sair == 'S'){
+			printf("Programa Encerrado\n");
+		}
+	}while(sair == 'n' || sair == 'N');
 	rodape();
 	
 	return 0;
 }
 
 void cabecalho(){
+	system("cls");
 	printf("=========\n");
 	printf("SUPER CALC 2025\n");
 	printf("=========\n");
@@ -50,7 +54,7 @@ void cabecalho(){
 
 void rodape(){
 	printf("=========\n");
-	printf("copyright 2025\n");
+	printf("Copyright 2025\n");
 	printf("=========\n");
 }
 
@@ -88,22 +92,6 @@ char le_valida_op(){
 			printf("A operacao deve ser + ou - ou * ou /");
 		}
 	}while(op != '+' && op != '-' && op != '*' && op != '/');
-}
-
-char le_valida_sair(){
-	char sair=0;
-	
-	do{
-		printf("Deseja sair? (S/N) ");
-		scanf(" %c",&sair);
-		rodape();
-		if(sair == 's' || sair == 'S'){
-			printf("Programa Encerrado\n");
-		}else{
-			system("cls");
-		}
-	}while(sair == 'N' || sair == 'n');
-	system ("cls");
 }
 
 int soma(int n1, int n2){
