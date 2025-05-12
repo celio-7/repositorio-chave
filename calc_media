@@ -1,0 +1,55 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void cabecalho();
+float le_valida_nota1();
+float le_valida_nota2();
+float calcula_media(float n1,float n2);
+
+int main() {
+	
+	float n1,n2;
+	
+	cabecalho();
+	n1 = le_valida_nota1();
+	n2 = le_valida_nota2();
+	
+	printf ("Resultado: %.1f",calcula_media(n1,n2));
+	
+	return 0;
+}
+
+void cabecalho(){
+	system("cls");
+	printf("-------------------\n");
+	printf("CALC MEDIA 2025 PRO\n");
+	printf("-------------------\n");
+}
+
+float le_valida_nota1(){
+	
+	float n1;
+
+do{	
+	printf("Digite sua N1: ");
+	scanf("%f",&n1);
+	
+}while(n1<0 || n1>10);
+
+}
+
+float le_valida_nota2(){
+	
+	float n2;
+
+do{
+	printf("Digite sua N2: ");
+	scanf("%f",&n2);
+}while(n2<0 || n2>10);
+}
+
+float calcula_media(float n1,float n2){
+	float media;
+	media = (n1 * 0.6) + (n2 * 0.4);
+	return media;
+}
