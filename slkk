@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+	
+	float n1[5],n2[5],soma_n1,soma_n2,media_n1,media_n2;
+	int i=0,qtd_est=0;
+	char cont;
+	
+	printf("--------------------\n");
+	printf("Calculadora de Media\n");
+	printf("--------------------\n");
+	
+	do{
+		printf("\nInsira a n1 do estudante %d:",qtd_est+1);
+		scanf("%f",&n1[i]);
+		
+		printf("Insira a n2 do estudante %d:",qtd_est+1);
+		scanf("%f",&n2[i]);
+		
+		qtd_est++;
+		
+		soma_n1 = soma_n1 + n1[i];
+		soma_n2 = soma_n2 + n2[i];
+		
+		printf("--------------------\n");	
+		printf("Deseja continuar (s/n)? ");
+		scanf(" %c",&cont);
+
+	if(qtd_est==5){
+		printf("\nO maximo de alunos e 5!\n");
+		break;
+	}
+	
+}while(cont == 's' || cont == 'S');
+
+
+
+	printf("------------------\n");
+	
+	media_n1 = (soma_n1/qtd_est);
+	media_n2 = (soma_n2/qtd_est);
+	
+	printf("Medias:\n\n");
+	printf("Medias n1: %.1f\n",media_n1);
+	printf("Medias n2: %.1f",media_n2);
+	 
+	
+	return 0;
+}
