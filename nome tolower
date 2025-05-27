@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define TAM 50
+#include <string.h>
+#include <ctype.h>
+
+int main() {
+
+	char nome1[TAM],nome2[TAM],cont;
+	int tamanho;
+	int n=0,i=0;
+
+	do{
+	printf("Digite o %d nome: ",n+1);
+	scanf("%[^\n]s",&nome1);
+	fflush(stdin);
+	
+	printf("Digite o %d nome: ",n+2);
+	scanf("%[^\n]s",&nome2);
+	tamanho=strlen(nome2);
+	fflush(stdin);
+
+
+	n++;
+	
+	
+	printf("-------------------------------------\n");
+
+	printf("Nome informado: %s\t\t",nome1);
+		
+		for(i=0; i < tamanho ;i++){
+			printf("%c",tolower(nome2[i]));	
+	}
+	
+	printf("\n-------------------------------------\n");
+
+	printf("\nDeseja Continuar? (S/N) ");
+	scanf("%c",&cont);
+
+	}while(cont=='S' || cont=='s');
+	
+	printf("Programa Encerrando...");
+	
+	return 0;
+	
+}
